@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>masstransit_rabbitmq.Consumer</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MassTransit" Version="8.0.4-develop.482" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.4-develop.482" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\masstransit-rabbitmq.Shared\masstransit-rabbitmq.Shared.csproj" />
+    </ItemGroup>
+
+
+</Project>
