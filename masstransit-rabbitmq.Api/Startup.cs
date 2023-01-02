@@ -1,3 +1,4 @@
+using System;
 using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,7 +22,14 @@ namespace masstransit_rabbitmq.Api
         {
             services.AddMassTransit(x =>
             {
-                x.UsingRabbitMq();
+                x.UsingRabbitMq((r, c) =>
+                {
+                    c.Host(new Uri("rabbitmq://127.0.0.1:5672"), h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
+                });
             });
             
             services.AddControllers();
